@@ -6,11 +6,11 @@ const rl = readline.createInterface({
 });
 console.log('AUTOMATE ORGS');
 rl.question("Enter your pat: ", function(GH_PAT) {
-        const github = new Octokit({
-            auth: GH_PAT
-          });
-        rl.close();
+    const github = new Octokit({
+        auth: GH_PAT
     });
+    rl.close();
+});
 
 rl.on("close", function() {
     console.log("\n----------------------------------------------");
