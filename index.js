@@ -34,4 +34,3 @@ async function set_rules(){
     });
 }
 set_rules()
-//Access token grenstong: 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
