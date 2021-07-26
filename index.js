@@ -27,9 +27,9 @@ async function set_rules(){
     });
 
     rl.on("close", function() {
-        console.log("\n----------------------------------------------");
-        console.log("\n**********Developed by Grenston !!!***********");
-        console.log("\n----------------------------------------------");
+        console.log("\n--------------------------------------------");
+        console.log("\n********** Developed by Grenston ***********");
+        console.log("\n--------------------------------------------");
         process.exit(0);
     });
 }
