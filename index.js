@@ -1,7 +1,7 @@
 const readline = require("readline");
 const { Octokit } = require("@octokit/rest");
 const config = require('./config.json');
-async function set_rules(){
+async function set_rules() {
     const rl = readline.createInterface({
         input: process.stdin,
         output: process.stdout
@@ -12,15 +12,21 @@ async function set_rules(){
             auth: GH_PAT
         });
         config.orgnames.forEach(async org => {
+            console.log('Patching... '+org)
             await github.request('PATCH /orgs/{org}', {
+                headers: {
+                    Accept: 'application/vnd.github.surtur-preview+json'
+                },
                 org: org,
-                billing_email: 'grenston.george@ecanarys.com'
-            })       
-            .then(response => {
-                console.log(response)
+                members_can_create_internal_repositories: true,
+                members_can_create_private_repositories: false,
+                members_can_create_public_repositories: false
             })
+            .then(response => {
+                console.log(response);
+            })    
             .catch(error => {
-                console.log(error)
+                console.log(error.message);
             });
         });
         rl.close();
@@ -34,3 +40,4 @@ async function set_rules(){
     });
 }
 set_rules()
+
