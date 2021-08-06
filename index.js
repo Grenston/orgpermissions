@@ -25,8 +25,7 @@ function set_rules() {
     const rl = readline.createInterface({
         input: process.stdin,
         output: process.stdout
-    });
-    
+    }); 
     console.log('AUTOMATE ORGS');
     rl.question("Enter your pat: ", async function(GH_PAT) {
         for (org of config.orgnames){
